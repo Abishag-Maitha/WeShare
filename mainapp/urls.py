@@ -14,5 +14,5 @@ urlpatterns = [
     path('post/<id>', views.post_comment, name='comment'),
     path('post/<id>/like', views.PostLikeToggle.as_view(), name='liked'),
     path('api/post/<id>/like', views.PostLikeAPIToggle.as_view(), name='liked-api'),
-    path('signout/',views.signout,name='signout')
+    path('signout/',views.logging_out,name='signout')
 ]
