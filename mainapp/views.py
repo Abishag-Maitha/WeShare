@@ -25,9 +25,7 @@ def signup(request):
             return redirect('home')
     else:
         form = RegForm()
-    return render(request, 'registration/signup.html', {'form': form})
-
-
+    return render(request, 'auth/signup.html', {'form': form})
 
 @login_required(login_url='login')
 def index(request):
@@ -48,8 +46,7 @@ def index(request):
         'users': users,
 
     }
-    return render(request, 'plata/index.html', context)
-
+    return render(request, 'index.html', context)
 
 
 @login_required(login_url='login')
@@ -71,7 +68,7 @@ def profile(request, username):
         'images': images,
 
     }
-    return render(request, 'plata/profile.html', context)
+    return render(request, 'profile.html', context)
 
 
 @login_required(login_url='login')
@@ -95,7 +92,7 @@ def user_profile(request, username):
         'follow_status': follow_status
     }
     
-    return render(request, 'plata/user_profile.html', context)
+    return render(request, 'user_profile.html', context)
 
 
 def unfollow(request, to_unfollow):
@@ -125,11 +122,10 @@ def search_profile(request):
             'results': results,
             'message': message
         }
-        return render(request, 'plata/results.html', context)
+        return render(request, 'search.html', context)
     else:
         message = "You haven't searched for any image category"
-    return render(request, 'plata/results.html', {'message': message})
-
+    return render(request, 'search.html', {'message': message})
 
 
 @login_required(login_url='login')
@@ -154,12 +150,11 @@ def post_comment(request, id):
         'is_liked': is_liked,
         'total_likes': image.total_likes()
     }
-    return render(request, 'plata/single_post.html', context)
+    return render(request, 'post.html', context)
 
 
 
 def like_post(request):
-    # image = get_object_or_404(Post, id=request.POST.get('image_id'))
     image = get_object_or_404(Post, id=request.POST.get('id'))
     is_liked = False
     if image.likes.filter(id=request.user.id).exists():
@@ -175,7 +170,7 @@ def like_post(request):
         'total_likes': image.total_likes()
     }
     if request.is_ajax():
-        html = render_to_string('plata/like.html', context, request=request)
+        html = render_to_string('like.html', context, request=request)
         return JsonResponse({'form': html})
 
 class PostLikeToggle(RedirectView):
@@ -197,7 +192,6 @@ class PostLikeAPIToggle(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, id=None, format=None):
-        # id = self.kwargs.get('id')
         obj = get_object_or_404(Post, pk=id)
         url_ = obj.get_absolute_url()
         user = self.request.user
