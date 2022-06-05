@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from .models import Post, Comment, Profile, Follow
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -25,7 +25,7 @@ def signup(request):
             return redirect('home')
     else:
         form = RegForm()
-    return render(request, 'auth/signup.html', {'form': form})
+    return render(request, 'registration/signup.html', {'form': form})
 
 @login_required(login_url='login')
 def index(request):
@@ -70,6 +70,9 @@ def profile(request, username):
     }
     return render(request, 'profile.html', context)
 
+def logging_out(request):
+    logout(request)
+    return redirect('login')
 
 @login_required(login_url='login')
 def user_profile(request, username):
