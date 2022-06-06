@@ -51,7 +51,7 @@ def index(request):
 
 @login_required(login_url='login')
 def profile(request, username):
-    images = request.user.profile.posts.all()
+    posts = request.user.profile.posts.all()
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -65,7 +65,7 @@ def profile(request, username):
     context = {
         'user_form': user_form,
         'prof_form': profile_form,
-        'images': images,
+        'posts': posts,
 
     }
     return render(request, 'profile.html', context)
