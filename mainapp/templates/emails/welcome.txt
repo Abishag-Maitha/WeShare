@@ -1,2 +1,3 @@
-Welcome to our platform thanks for subscribing {{username}},
-we are glad to have you onboard
+Hello {{name}}
+
+We are really exicted to welcome you to WeShare.You will find the most exciting experience with fellow users.
