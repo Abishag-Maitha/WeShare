@@ -99,6 +99,9 @@ cloudinary.config(
   api_secret = config('API_SECRET'),
 )
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -136,9 +139,13 @@ CRISPY_TEMPLATE_PACK='bootstrap4'
 
 STATIC_URL = 'static/'
 
+django_heroku.settings(locals())
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/"
+
+
