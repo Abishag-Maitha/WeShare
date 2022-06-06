@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-8 " style="border-right: 1px solid grey;">
             <div class="row">
-                <button class="btn w-100 btn-outline-dark ml-4 mb-3" data-toggle="modal" data-target="#imageUpload">
+                <button class="btn w-50 ml-4 mb-3" data-toggle="modal" data-target="#imageUpload">
                     Add New Post
                 </button>
                 <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -28,20 +28,20 @@
             {% for image in images %}
             <div class="card mb-4">
                 <div class="card-title">
-                    <img src="{{image.user.profile_picture.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="{{image.user.user.username}}" width="35" height="35">
+                    <img src="{{image.user.profile_picture.url}}" class="rounded-circle border ml-3 mt-2  mr-3" alt="" width="35" height="35">
                     <a href="{% url 'user_profile' image.user.user.username  %}" class="mt-4 user">{{image.user.user.username|title}}</a>
                 </div>
                 <div class="card-body mb-4">
                     <a href="{% url 'comment' image.id %}">
                         <div class="card-text" style="background-image:url('{{ image.image.url }}');;background-size: contain;position: sticky">
-                            <img src="{{image.image.url}}" style="" class="card-img" width="100%" />
+                            <img src="{{image.image.url}}" class="card-img" width="100%" />
                         </div>
                     </a>
                 </div>
                 <div class="iconic ml-2">
                     <button class="btn btn-sm" type="submit" name="image_id" value="{{image.id}}">
                         <a href="{% url 'comment' image.id %}"><i class="far fa-heart hearticon mx-auto"
-                        aria-hidden="true" style=""></i></a>
+                        aria-hidden="true"></i></a>
                     </button>
                     <button class="btn btn-sm" type="submit"><a href="{% url 'comment' image.id %}"><i
                             class="far fa-comment hearticon mx-auto" aria-hidden="true"></i>
