@@ -9,3 +9,4 @@ def send_email(username,receiver):
     msg=EmailMultiAlternatives(subject,alt_content,sender,[receiver])
     msg.attach_alternative(mail_content,'text/html')
     msg.send()
+
