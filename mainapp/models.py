@@ -8,7 +8,7 @@ from cloudinary.models import CloudinaryField
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     profile_picture =CloudinaryField('image')
-    bio = models.TextField(max_length=500, default="personal information", blank=True)
+    bio = models.TextField(max_length=500, default="", blank=True)
     name = models.CharField(blank=True, max_length=120)
     location = models.CharField(max_length=60, blank=True)
 

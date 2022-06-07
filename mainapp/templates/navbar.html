@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
         <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-3">
+            <ul class="navbar-nav me-auto  mb-lg-0 p-3">
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="{%url 'home' %}">Home</a>
                 </li>
@@ -21,8 +21,9 @@
                     <a class="nav-link active text-light" aria-current="page" href="{% url 'signup' %}">Sign Up</a>
                 </li>
                 {% endif %}
+
             </ul>
-            </ul>
+
             <form class="d-flex">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -10,8 +10,8 @@
                             <div class=" ">
                                 <span class="mr-3 text-secondary username "><strong class="me-2 "></strong>{{ user.username }}</span>
 
-                                <button class="btn w-100 btn-outline-dark ml-4 mb-3" data-toggle="modal" data-target="#imageUpload">
-                                    Update your profie
+                                <button class="btn w-100 btn-outline-dark ml-1 mb-3" data-toggle="modal" data-target="#imageUpload">
+                                    Update your profile
                                 </button>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" novalidate>
                                 {% csrf_token %} {{ user_form|crispy }} {{ prof_form|crispy }}
-                                <button class="btn btn-sm btn-outline-dark w-100">Update Profile</button>
+                                <button class="btn btn-sm btn-outline-dark w-50">Update Profile</button>
                             </form>
                         </div>
                     </div>
