@@ -47,7 +47,7 @@ Contact: 0719816825
 
 ## Super User Credentials
 Username: Abishag
-Password: Pendo123
+Password: pendo123
 
 ## Live Link
 newsweshare.herokuapp.com/
