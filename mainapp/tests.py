@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class TestProfile(TestCase):
     def setUp(self):
-        self.user = User(username='ogaye')
+        self.user = User(username='abishag')
         self.user.save()
 
         self.profile_test = Profile(id=1, name='loca', profile_picture='default.jpg', bio='my biography',
@@ -22,10 +22,10 @@ class TestProfile(TestCase):
 
 class TestPost(TestCase):
     def setUp(self):
-        self.profile_test = Profile(name='ogaye', user=User(username='michael'))
+        self.profile_test = Profile(name='Abishag', user=User(username='abishag'))
         self.profile_test.save()
 
-        self.image_test = Post(image='default.png', name='loca', caption='testing the obvious', user=self.profile_test)
+        self.image_test = Post(image='default.png', name='loca', caption='doing some tests here', user=self.profile_test)
 
     def test_insatance(self):
         self.assertTrue(isinstance(self.image_test, Post))
